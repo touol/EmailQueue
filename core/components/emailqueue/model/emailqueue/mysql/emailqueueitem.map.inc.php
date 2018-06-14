@@ -19,7 +19,7 @@ $xpdo_meta_map['EmailQueueItem']= array (
     'body' => '',
     'attachments' => '',
     'date' => '0000-00-00 00:00:00',
-    'sentdate' => '0000-00-00 00:00:00',
+    'sentdate' => NULL,
     'status' => 1,
   ),
   'fieldMeta' => 
@@ -98,7 +98,6 @@ $xpdo_meta_map['EmailQueueItem']= array (
       'dbtype' => 'datetime',
       'phptype' => 'datetime',
       'null' => true,
-      'default' => '0000-00-00 00:00:00',
     ),
     'status' => 
     array (

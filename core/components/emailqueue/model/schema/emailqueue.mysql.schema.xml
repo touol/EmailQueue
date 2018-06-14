@@ -12,7 +12,7 @@
 		<field key="body" dbtype="text" phptype="text" null="true" default=""/>
 		<field key="attachments" dbtype="text" phptype="text" null="true" default=""/>
 		<field key="date" dbtype="datetime" phptype="datetime" null="true" default="0000-00-00 00:00:00"/>
-		<field key="sentdate" dbtype="datetime" phptype="datetime" null="true" default="0000-00-00 00:00:00"/>
+		<field key="sentdate" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="status" dbtype="tinyint" precision="3" phptype="integer" null="false" default="1"/>
 		
 		<index alias="to" name="to" primary="false" unique="false" type="BTREE">

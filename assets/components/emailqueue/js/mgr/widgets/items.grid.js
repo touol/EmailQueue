@@ -227,23 +227,23 @@ Ext.extend(EmailQueue.grid.Items, MODx.grid.Grid, {
 			id: config.id + '-send_count',
 			value: 50,
 		}, {
-			text: '<i class="icon icon-send"></i>',
+			text: '<i class="icon icon-send" title="'+_('emailqueue_title_send_n_email')+'"></i>',
             handler: this.sendItems,
             scope: this
 		}, {	
 			html: _('emailqueue_error'),
 		}, {
-			text: '<i class="icon icon-send"></i>',
+			text: '<i class="icon icon-send" title="'+_('emailqueue_title_error_renew')+'"></i>',
             handler: this.renewErrorItems,
             scope: this
 		}, {
-			text: '<i class="icon icon-trash-o"></i>',
+			text: '<i class="icon icon-trash-o" title="'+_('emailqueue_title_error_remove')+'"></i>',
             handler: this.removeErrorItems,
             scope: this
 		}, {	
 			html: _('emailqueue_all'),
 		}, {
-			text: '<i class="icon icon-trash-o"></i>',
+			text: '<i class="icon icon-trash-o" title="'+_('emailqueue_title_all_remove')+'"></i>',
             handler: this.removeAll,
             scope: this	
 		}, '->', {

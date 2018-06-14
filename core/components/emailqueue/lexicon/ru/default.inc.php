@@ -3,7 +3,7 @@ include_once 'setting.inc.php';
 
 $_lang['emailqueue'] = 'EmailQueue';
 $_lang['emailqueue_menu_desc'] = 'Очередь писем.';
-$_lang['emailqueue_intro_msg'] = 'Вы можете выделять сразу несколько пимем при помощи Shift или Ctrl.';
+$_lang['emailqueue_intro_msg'] = 'Вы можете выделять сразу несколько писем при помощи Shift или Ctrl.';
 
 $_lang['emailqueue_items'] = 'Письма';
 $_lang['emailqueue_item_id'] = 'Id';
@@ -47,3 +47,9 @@ $_lang['emailqueue_email_send'] = 'Отправить письмо';
 $_lang['emailqueue_emails_send'] = 'Отправить письма';
 $_lang['emailqueue_email_send_confirm'] = 'Вы уверены, что хотите отправить этот письмо?';
 $_lang['emailqueue_emails_send_confirm'] = 'Вы уверены, что хотите отправить эти письма?';
+
+//подписи к кнопкам
+$_lang['emailqueue_title_send_n_email'] = 'Отправить введенное кол-во писем';
+$_lang['emailqueue_title_error_renew'] = 'Восстановить письма с ошибками в очереди';
+$_lang['emailqueue_title_error_remove'] = 'Удалить письма с ошибками';
+$_lang['emailqueue_title_all_remove'] = 'Удалить все письма из очереди';
