@@ -16,6 +16,9 @@ EmailQueue.utils.renderStatus = function (value) {
 		case 3:
 			return String.format('<span class="red">{0}</span>', _('emailqueue_status_error'));
 			break;
+		case 4:
+			return String.format('<span class="yellow">{0}</span>', _('emailqueue_status_send'));
+			break;
 		default:
 			return String.format('<span class="red">{0}</span>', "error");
 	}

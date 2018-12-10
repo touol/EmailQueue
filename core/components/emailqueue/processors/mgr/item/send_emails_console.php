@@ -13,9 +13,16 @@ $modx->log(modX::LOG_LEVEL_INFO,'Отправлять по '.$send_count.' пи�
 $c = $modx->newQuery('EmailQueueItem');
 $c->where(array('status'=>1));
 $c->limit($send_count);
-$emails = $modx->getIterator('EmailQueueItem',$c);
+$emails = $modx->getCollection('EmailQueueItem',$c);
 
 $count = 0;	
+
+//перед отправкой установить статус Отправлется, чтобы крон не отправил дважды
+foreach($emails as $email){
+	$email->status = 4;
+	$email->save();
+}
+
 foreach($emails as $email){
 	
 	if ($email->send()) {

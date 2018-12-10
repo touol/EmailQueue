@@ -5,10 +5,14 @@
 $snippets = array();
 
 $tmp = array(
-    /*'EmailQueue' => array(
+    'EmailQueue' => array(
         'file' => 'emailqueue',
-        'description' => '',
-    ),*/
+        'description' => 'Хук для FormIt/AjaxForm. Авторы: Евгений Дурягин.',
+    ),
+	'EmailQueueAutoResponder' => array(
+        'file' => 'emailqueueautoresponder',
+        'description' => 'Хук для FormIt/AjaxForm.',
+    ),
 );
 
 foreach ($tmp as $k => $v) {

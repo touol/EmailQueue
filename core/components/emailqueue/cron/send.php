@@ -11,7 +11,13 @@ $q = $modx->newQuery('EmailQueueItem');
 $q->where(array('status'=>1));
 $q->limit($modx->getOption('emailqueue_limit', null, 50, true));
 
-$queue = $modx->getIterator('EmailQueueItem', $q);
+$queue = $modx->getCollection('EmailQueueItem', $q);
+
+//перед отправкой установить статус Отправлется, чтобы крон не отправил дважды
+foreach($queue as $email){
+	$email->status = 4;
+	$email->save();
+}
 /** @var EmailQueueItem $email */
 foreach ($queue as $email) {
 	$email->send();

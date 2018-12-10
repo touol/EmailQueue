@@ -217,37 +217,42 @@ Ext.extend(EmailQueue.grid.Items, MODx.grid.Grid, {
     },
 
     getTopBar: function (config) {
-        return [{
-            text: '<i class="icon icon-plus"></i>&nbsp;' + _('emailqueue_item_create'),
-            handler: this.createItem,
-            scope: this
-		},{
+        var tbar = [];
+
+        tbar.push({
+            text: '<i class="icon icon-cogs"></i> ',
+            menu: [{
+                text: '<i class="icon icon-plus"></i>&nbsp;' + _('emailqueue_item_create'),
+				handler: this.createItem,
+				scope: this
+            },'-',{
+                text: '<i class="icon icon-refresh"></i>&nbsp;'+_('emailqueue_title_error_renew'),
+				handler: this.renewErrorItems,
+				scope: this
+            }, {
+                text: '<i class="icon icon-trash-o"></i>&nbsp;' +_('emailqueue_title_error_remove'),
+				handler: this.removeErrorItems,
+				scope: this
+			},'-',{
+				text: '<i class="icon icon-trash-o"></i>&nbsp;'+_('emailqueue_title_all_remove'),
+				handler: this.removeAll,
+				scope: this
+            }]
+        });
+		
+		tbar.push({
 			xtype: 'textfield',
 			width: 80,
 			id: config.id + '-send_count',
 			value: 50,
 		}, {
 			text: '<i class="icon icon-send" title="'+_('emailqueue_title_send_n_email')+'"></i>',
-            handler: this.sendItems,
+			handler: this.sendItems,
             scope: this
-		}, {	
-			html: _('emailqueue_error'),
-		}, {
-			text: '<i class="icon icon-send" title="'+_('emailqueue_title_error_renew')+'"></i>',
-            handler: this.renewErrorItems,
-            scope: this
-		}, {
-			text: '<i class="icon icon-trash-o" title="'+_('emailqueue_title_error_remove')+'"></i>',
-            handler: this.removeErrorItems,
-            scope: this
-		}, {	
-			html: _('emailqueue_all'),
-		}, {
-			text: '<i class="icon icon-trash-o" title="'+_('emailqueue_title_all_remove')+'"></i>',
-            handler: this.removeAll,
-            scope: this	
-		}, '->', {
-			xtype: 'emailqueue-combo-status',
+        });
+		
+		tbar.push('->',{
+            xtype: 'emailqueue-combo-status',
 			id: config.id + '-search-field-status',
 			listeners: {
 				render: {
@@ -278,7 +283,9 @@ Ext.extend(EmailQueue.grid.Items, MODx.grid.Grid, {
                     }, scope: this
                 },
             }
-        }];
+        });
+
+        return tbar;
     },
 	renewErrorItems: function () {
         MODx.msg.confirm({
@@ -426,6 +433,7 @@ EmailQueue.combo.Status = function(config) {
 			fields: ['status', 'label']
 			,data: [
 				[1 , _('emailqueue_status_new')],
+				[4 , _('emailqueue_status_send')],
 				[2 , _('emailqueue_status_sended')],
 				[3 , _('emailqueue_status_error')],
 			]

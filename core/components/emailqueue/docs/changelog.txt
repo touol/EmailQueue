@@ -1,4 +1,18 @@
 Changelog for EmailQueue.
+1.1.1-beta
+==============
+Исправлены описания.
+
+1.1.0-beta
+==============
+Сделан более удобный topBar. 
+Добавлен статус "Отправляется" для для избежания отправки дубликатов писем. 
+Добавлены хуки EmailQueue и EmailQueueAutoResponder для замены хуков email и FormItAutoResponder в FormIt/AjaxForm
+
+1.0.5-beta
+==============
+Исправлена ошибка с типом поля body в php 7.2. phptype="text" заменил на phptype="string"
+
 1.0.4-beta
 ==============
 Добавлена всплывающая подсказка на кнопки.

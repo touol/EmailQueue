@@ -18,6 +18,7 @@ $_lang['emailqueue_item_body'] = 'Сообщение';
 
 $_lang['emailqueue_status_new'] = 'Новое';
 $_lang['emailqueue_status_sended'] = 'Отправлено';
+$_lang['emailqueue_status_send'] = 'Отправлется';
 $_lang['emailqueue_status_error'] = 'Ошибка';
 
 $_lang['emailqueue_item_create'] = 'Создать письмо';
