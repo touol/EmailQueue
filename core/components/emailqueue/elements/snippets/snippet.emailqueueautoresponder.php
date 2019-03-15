@@ -100,8 +100,6 @@ $data = array(
 );
 /* reply to */
 $emailReplyTo = $modx->getOption('fiarReplyTo', $hook->formit->config, $mailFrom);
-$emailReplyTo = $hook->_process($emailReplyTo, $fields);
-
 if (!empty($emailReplyTo)) {
     $data['reply_to'] = $hook->_process($emailReplyTo, $fields);
 }
