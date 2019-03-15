@@ -73,6 +73,7 @@ $placeholders = $fields;
 $mailTo= $fields[$toField];
 //$message = $formit->getChunk($tpl, $placeholders);
 $message = $hook->formit->getChunk($tpl, $fields);
+$message = $hook->_process($message, $hook->formit->config);
 
 /* add attachments */
 /*if ($fiarFiles) {
@@ -98,11 +99,11 @@ $data = array(
 	'date' => date("Y-m-d H:i:s"),
 );
 /* reply to */
-$emailReplyTo = $modx->getOption('fiarReplyTo', $this->formit->config, $mailFrom);
+$emailReplyTo = $modx->getOption('fiarReplyTo', $hook->formit->config, $mailFrom);
 $emailReplyTo = $hook->_process($emailReplyTo, $fields);
 
 if (!empty($emailReplyTo)) {
-    $date['replyto'] = $emailReplyTo;
+    $data['reply_to'] = $hook->_process($emailReplyTo, $fields);
 }
 $mailTo = array_map('trim', explode(',', $mailTo));
 
