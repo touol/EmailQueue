@@ -112,7 +112,7 @@ if (empty($tpl)) {
     }
 }
 $message = $hook->formit->getChunk($tpl, $fields);
-//$message = $hook->_process($message, $this->config);
+$message = $hook->_process($message, $hook->formit->config);
 
 
 if (!$EmailQueue = $modx->getService('emailqueue', 'EmailQueue', $modx->getOption('emailqueue_core_path', null,
@@ -132,7 +132,7 @@ $data = array(
 
 $emailReplyTo = $modx->getOption('emailReplyTo', $hook->formit->config, '');
 if (!empty($emailReplyTo)) {
-    $date['replyto'] = $emailReplyTo;
+    $data['reply_to'] = $hook->_process($emailReplyTo, $fields);
 }
 $emailTo = array_map('trim', explode(',', $emailTo));
 
