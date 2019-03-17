@@ -1,4 +1,10 @@
 Changelog for EmailQueue.
+
+1.2.0-beta
+==============
+Исправлены опечатки в коде сниппетов. Evgeny Duryagin
+Исправлено Flat file processor support is deprecated since version 2.7.0.
+
 1.1.1-beta
 ==============
 Исправлены описания.
